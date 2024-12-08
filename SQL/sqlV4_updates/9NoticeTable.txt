@@ -1,0 +1,7 @@
+ 
+CREATE TABLE Notices(
+NoticeID NUMBER,
+CreateDate Date,
+NoticeMsg varchar2(300),
+PRIMARY KEY (NoticeID) 
+)

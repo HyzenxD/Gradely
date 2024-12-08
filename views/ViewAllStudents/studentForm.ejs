@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Student Information Form</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f2f2f2;
+        padding: 20px;
+      }
+
+      .container {
+        max-width: 800px;
+        margin: 0 auto;
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+      }
+
+      .form-group {
+        margin-bottom: 20px;
+      }
+
+      label {
+        display: block;
+        font-weight: bold;
+        margin-bottom: 5px;
+      }
+
+      input[type="text"],
+      input[type="number"] {
+        width: 90%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 3px;
+        --margin-left: 2rem;
+      }
+
+      input[type="submit"] {
+        background-color: #c48600;
+        color: #fff;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 3px;
+        cursor: pointer;
+      }
+
+      input[type="submit"]:hover {
+        background-color: #ffad15;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h2>Student Information Form</h2>
+      <form action="/adminNewStd" method="POST">
+        <div class="form-group">
+          <label for="STUDENT_ID">Student ID:</label>
+          <input type="text" id="STUDENT_ID" name="STUDENT_ID" required />
+        </div>
+        <div class="form-group">
+          <label for="FIRST_NAME">First Name:</label>
+          <input type="text" id="FIRST_NAME" name="FIRST_NAME" required />
+        </div>
+        <div class="form-group">
+          <label for="LAST_NAME">Last Name:</label>
+          <input type="text" id="LAST_NAME" name="LAST_NAME" />
+        </div>
+        <div class="form-group">
+          <label for="LEVEL_TERM">Level Term:</label>
+          <input type="text" id="LEVEL_TERM" name="LEVEL_TERM" />
+        </div>
+        <div class="form-group">
+          <label for="DEPARTMENT">Department:</label>
+          <input type="text" id="DEPARTMENT" name="DEPARTMENT" />
+        </div>
+        <div class="form-group">
+          <label for="EMAIL">Email:</label>
+          <input type="text" id="EMAIL" name="EMAIL" />
+        </div>
+        <div class="form-group">
+          <label for="PHONE_NO">Phone Number:</label>
+          <input type="text" id="PHONE_NO" name="PHONE_NO" required />
+        </div>
+        <div class="form-group">
+          <label for="NID_NO">NID Number:</label>
+          <input type="text" id="NID_NO" name="NID_NO" />
+        </div>
+        <div class="form-group">
+          <label for="ADDRESS">Address:</label>
+          <input type="text" id="ADDRESS" name="ADDRESS" />
+        </div>
+        <div class="form-group">
+          <label for="CREDITS_COMPLETED">Credits Completed:</label>
+          <input
+            type="number"
+            step="0.1"
+            id="CREDITS_COMPLETED"
+            name="CREDITS_COMPLETED"
+          />
+        </div>
+        <div class="form-group">
+          <label for="SECTION_NAME">Section Name:</label>
+          <input type="text" id="SECTION_NAME" name="SECTION_NAME" />
+        </div>
+        <div class="form-group">
+          <label for="ADVISOR_ID">Advisor ID:</label>
+          <input type="text" id="ADVISOR_ID" name="ADVISOR_ID" />
+        </div>
+        <div class="form-group">
+          <label for="PASSWORD">Password:</label>
+          <input type="password" id="PASSWORD" name="PASSWORD" />
+        </div>
+        <div class="form-group">
+          <label for="IMG_URL">Image URL:</label>
+          <input type="text" id="IMG_URL" name="IMG_URL" />
+        </div>
+        <div class="form-group">
+          <input type="submit" value="Submit" id="submitStudentForm" />
+        </div>
+      </form>
+    </div>
+  </body>
+</html>

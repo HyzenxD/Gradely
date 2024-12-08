@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.css" />
+    <title>Document</title>
+    <style>
+    </style>
+</head>
+
+<body>
+    <div class="table-responsive text-center container div-scroll"
+        style=" height: 500px; width : auto; background-color:rgb(237, 207, 169),;" id="div1">
+        <table class="table table-bordered table-hover">
+            <caption style="color: black; font-size: larger;">Logs of All Admins</caption>
+            <thead class="table-dark">
+                <tr>
+                    <th scope="col">Log ID</th>
+                    <th scope="col">Action Type</th>
+                    <th scope="col">Action On</th>
+                    <th scope="col">Acted By</th>
+                    <th scope="col">Action Time</th>
+                </tr>
+            </thead>
+            <tbody class="table-primary">
+                <% logTable.rows.forEach(log=> { %>
+                    <tr>
+                        <td>
+                            <%= log.LOG_ID %>
+                        </td>
+                        <td>
+                            <%= log.ACTION_TYPE %>
+                        </td>
+                        <td>
+                            <%= log.ACTION_ON %>
+                        </td>
+                        <td>
+                            <%= log.ACTED_BY %>
+                        </td>
+                        <td>
+                            <%= log.ACTION_TIME %>
+                        </td>
+                    </tr>
+                    <% }); %>
+            </tbody>
+        </table>
+    </div>
+    </div>
+</body>
+<script src="/node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+
+</html>

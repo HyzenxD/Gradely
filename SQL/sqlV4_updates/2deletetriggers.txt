@@ -1,0 +1,2 @@
+Drop TRIGGER teacher_change;
+Drop TRIGGER STUDENT_change;

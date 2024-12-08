@@ -1,0 +1,9 @@
+DROP TABLE CURRENT_SESSION ;
+ CREATE TABLE CURRENT_session(
+session_name varchar2(15),
+month_name varchar2(15),
+year_name varchar2(6),
+ PRIMARY KEY (session_name)
+ );
+ INSERT INTO GRADELY.CURRENT_SESSION
+VALUES('July 2023' , 'July' , '2023');

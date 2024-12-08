@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.css" />
+    <title>Enroll/Drop Courses</title>
+    <style>
+        div.scroll {
+            Width: 5px;
+            Height: 10px;
+            Overflow-x: scroll;
+            Overflow-y: scroll;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="table-responsive text-center container bg-transparent div-scroll" style="width: 100%;" id="div1">
+        <p><b>Current level-term: <%= level_term.rows[0].LEVEL_TERM %></b></p>
+        <p><b>Department: <%= dept.rows[0].DEPARTMENT %></b></p>
+
+        <!-- Enroll Section -->
+        <h4>Add Courses</h4>
+        <div class="alert alert-success" role="alert" style="display: none;" id="successAlertDiv">
+            This is a success alert—check it out!
+        </div>
+        <table class="table table-bordered table-hover" style="margin-top: 20px;">
+            <thead class="table-dark">
+                <tr>
+                    <th scope="col">Course ID</th>
+                    <th scope="col">Course Title</th>
+                    <th scope="col">Course Credit</th>
+                    <th scope="col">Level-Term</th>
+                    <th scope="col">Session</th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody class="table-primary">
+                <% availableCourses.rows.forEach(course => { %>
+                    <tr>
+                        <td>
+                            <%= course.COURSE_ID %>
+                        </td>
+                        <td>
+                            <%= course.COURSE_TITLE %>
+                        </td>
+                        <td>
+                            <%= course.CREDIT_HOURS %>
+                        </td>
+                        <td>
+                            <%= course.LEVEL_TERM %>
+                        </td>
+                        <td>
+                            <%= course.SESSION_NAME %>
+                        </td>
+                        <td>
+                            <button class="btn btn-dark btn-sm addCourseButton">Enroll</button>
+                        </td>
+                    </tr>
+                <% }); %>
+            </tbody>
+        </table>
+
+        <!-- Drop Section -->
+        <h4>Drop Courses</h4>
+        <table class="table table-bordered table-hover" style="margin-top: 20px;">
+            <thead class="table-dark">
+                <tr>
+                    <th scope="col">Course ID</th>
+                    <th scope="col">Course Title</th>
+                    <th scope="col">Course Credit</th>
+                    <th scope="col">Level-Term</th>
+                    <th scope="col">Session</th>
+                    <th scope="col">Status</th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody class="table-primary">
+                <% dropCourses.rows.forEach(course => { %>
+                    <tr>
+                        <td>
+                            <%= course.COURSE_ID %>
+                        </td>
+                        <td>
+                            <%= course.COURSE_TITLE %>
+                        </td>
+                        <td>
+                            <%= course.CREDIT_HOURS %>
+                        </td>
+                        <td>
+                            <%= course.LEVEL_TERM %>
+                        </td>
+                        <td>
+                            <%= course.SESSION_NAME %>
+                        </td>
+                        <td>
+                            <%= course.STATUS %>
+                        </td>
+                        <td>
+                            <button class="btn btn-dark btn-sm dropCourseButton">Drop</button>
+                        </td>
+                    </tr>
+                <% }); %>
+            </tbody>
+        </table>
+    </div>
+
+</body>
+<script src="/node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+</html>

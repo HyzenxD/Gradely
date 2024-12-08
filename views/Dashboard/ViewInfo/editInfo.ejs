@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+    />
+    <title>Edit Information</title>
+    <style>
+      p {
+        font-size: large;
+      }
+
+      /* Style for label and input elements */
+      label {
+        display: block; /* Place labels on separate lines */
+        margin-top: 10px; /* Add top margin for spacing */
+      }
+
+      input[type="text"] {
+        width: 100%; /* Make input boxes fill the container width */
+        padding: 5px; /* Add padding for spacing inside input boxes */
+        margin-top: 5px; /* Add top margin for spacing between input boxes */
+        margin-bottom: 10px; /* Add bottom margin for spacing between input boxes */
+        background-color: rgb(243, 242, 242);
+        border: 3px solid black;
+      }
+
+      /* Style for the "Save Changes" button */
+      button[type="submit"] {
+        margin-top: 20px; /* Add top margin for spacing below input boxes */
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container-fluid">
+      <!-- Student image -->
+      <img
+        src="/views/images/user2.jpg"
+        class="rounded"
+        alt="..."
+        style="height: 150px; width: 150px; margin-bottom: 50px"
+      />
+      <!-- Student info form for editing -->
+      <form method="POST" action="/saveinfo">
+        <!-- Assuming you'll post the edited data to a save route -->
+        <label for="student_id"><strong>ID:</strong></label>
+        <input
+          type="text"
+          id="student_id"
+          name="student_id"
+          value="<%= student_data.STUDENT_ID %>"
+          style="border: 1px solid black"
+          disabled
+        />
+        <!-- Hidden input for student ID -->
+        <label for="first_name"><strong>First Name:</strong></label>
+        <input
+          type="text"
+          id="first_name"
+          name="first_name"
+          value="<%= student_data.FIRST_NAME %>"
+        />
+        <label for="last_name"><strong>Last Name:</strong></label>
+        <input
+          type="text"
+          id="last_name"
+          name="last_name"
+          value="<%= student_data.LAST_NAME %>"
+        />
+        <label for="level_term"><strong>Level-Term:</strong></label>
+        <input
+          type="text"
+          id="level_term"
+          name="level_term"
+          value="<%= student_data.LEVEL_TERM %>"
+          style="border: 1px solid black"
+          disabled
+        />
+        <label for="department"><strong>Department:</strong></label>
+        <input
+          type="text"
+          id="department"
+          name="department"
+          value="<%= student_data.DEPARTMENT %>"
+          style="border: 1px solid black"
+          disabled
+        />
+        <label for="section_name"><strong>Section:</strong></label>
+        <input
+          type="text"
+          id="section_name"
+          name="section_name"
+          value="<%= student_data.SECTION_NAME %>"
+          style="border: 1px solid black"
+          disabled
+        />
+        <label for="email"><strong>Email:</strong></label>
+        <input
+          type="text"
+          id="email"
+          name="email"
+          value="<%= student_data.EMAIL %>"
+        />
+        <label for="phone_no"><strong>Phone No.:</strong></label>
+        <input
+          type="text"
+          id="phone_no"
+          name="phone_no"
+          value="<%= student_data.PHONE_NO %>"
+        />
+        <label for="address"><strong>Address:</strong></label>
+        <input
+          type="text"
+          id="address"
+          name="address"
+          value="<%= student_data.ADDRESS %>"
+        />
+        <label for="nid_no"><strong>NID No:</strong></label>
+        <input
+          type="text"
+          id="nid_no"
+          name="nid_no"
+          value="<%= student_data.NID_NO %>"
+          disabled
+        />
+        <label for="credits_completed"
+          ><strong>Credits Completed so far:</strong></label
+        >
+        <input
+          type="text"
+          id="credits_completed"
+          name="credits_completed"
+          value="<%= student_data.CREDITS_COMPLETED %>"
+          style="border: 1px solid black"
+          disabled
+        />
+        <button class="btn btn-dark" type="submit" style="margin-bottom: 50px">
+          Save Changes
+        </button>
+      </form>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <title>Teacher</title>
+    <style>
+        p{
+            font-size: large;
+        }
+    </style>
+</head>
+<body>
+    <div class=" container-fluid ">
+        <!--students image-->
+        <img src="/views/images/user2.jpg" class="rounded" alt="..." style="height: 150px;width: 150px; margin-bottom: 50px;">
+        <!--students info from query-->
+        <p><strong>First Name : </strong>  <%= teacher_data.FIRST_NAME %></p>
+        <p><strong>Last Name : </strong> <%= teacher_data.LAST_NAME %></p> 
+        <p><strong>Teacher ID : </strong><%= teacher_data.TEACHER_ID %></p>
+        <p><strong>Designation : </strong> <%= teacher_data.DESIGNATION %></p>
+        <p><strong>Department : </strong><%= teacher_data.DEPARTMENT %></p>
+        <p><strong>Email : </strong> <%= teacher_data.EMAIL %></p>
+        <p><strong>Phone No. : </strong> <%= teacher_data.PHONE_NO %></p>
+        <p><strong>Adress : </strong> <%= teacher_data.ADDRESS %></p>
+        <p><strong>NID No : </strong>  <%= teacher_data.NID_NO %></p>
+        <p><strong>Salary :</strong>  <%= teacher_data.SALARY %> $  </p>
+      </div>
+</body>
+</html>

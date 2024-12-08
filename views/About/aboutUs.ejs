@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About Us</title>
+    <style>
+      /* Reset some default browser styles */
+      body,
+      h1,
+      h2,
+      p,
+      ul,
+      li,
+      a {
+        margin: 0;
+        padding: 0;
+      }
+
+      /* Set a background color and text color for the entire page */
+      body {
+        background-color: #beffc3;
+        color: #333;
+        font-family: Arial, sans-serif;
+        line-height: 1.6;
+        margin: 0;
+        padding: 0;
+        height: 1200px;
+      }
+
+      /* Style the header section */
+      header {
+        background-color: #01140a;
+        color: #fff;
+        text-align: center;
+        padding: 5px;
+        box-shadow: 1px 5px 5px 1px rgba(0, 0, 0, 0.3);
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+      }
+
+      /* Style the main sections */
+      section {
+        margin: 20px;
+        padding: 20px;
+        background-color: #f1f8ee;
+        border-radius: 20px;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+        text-align: center;
+      }
+
+      /* Style the developer profiles */
+      .developer {
+        margin-top: 20px;
+      }
+
+      .developer-img {
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+        margin: 3rem;
+      }
+
+      .container {
+        margin: 20px;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        border-radius: 20px;
+        background-color: #e6ffe7;
+
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+      }
+      .dev-card {
+        background-color: rgb(244, 255, 245);
+
+        margin: 2rem;
+        padding: 4rem;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        border-radius: 20px;
+
+        transition: 0.15s;
+      }
+      .dev-card:hover {
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+      }
+
+      /* Style the footer section */
+      footer {
+        background-color: #01140a;
+        color: #fff;
+        text-align: center;
+        padding: 10px 0;
+        position: fixed;
+        bottom: 0px;
+        left: 0px;
+        right: 0;
+      }
+
+      /* Style links */
+      a {
+        color: #007acc;
+        text-decoration: none;
+      }
+
+      a:hover {
+        text-decoration: underline;
+      }
+
+      button {
+        position: relative;
+        z-index: 2;
+        left: 0;
+        top: 0;
+        padding: 1.4rem;
+        margin-top: 5px;
+        margin-left: 5px;
+        margin-bottom: 5px;
+        color: white;
+        font-size: 20px;
+        background-color: #65b68a;
+        border: none;
+        border-radius: 15px;
+        transition: 0.2s;
+      }
+      button:hover {
+        background-color: #1dc267;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <button id="HomeButton">Home</button>
+      <h1 style="margin-left: 42.5%">Gradely</h1>
+    </header>
+
+    <section>
+      <h2>Overview</h2>
+      <p style="margin-left: 5rem; margin-right: 5rem">
+        Gradely is a system for storing, viewing and updating
+        student information and specially students' grades. Students can view
+        individual, level-wise, course-wise results. Also students can view and
+        enrolled courses , advisors can manage course enrollment. Admin panel
+        available for viewing, adding or removing courses, students, notices,
+        exam routines.
+      </p>
+    </section>
+    <section>
+      <h2>Developed By</h2>
+    </section>
+
+    <div class="container">
+      <div class="dev-card">
+        <img src="/views/About/tawhid.jpg" class="developer-img" />
+        <h2>Tawhid Hasan</h2>
+        <p>tawhid.hasan002@gmail.com</p>
+        <p>Undergrad student</p>
+        <p>CSE, RUET</p>
+        <a href="https://https://github.com/HyzenxD">Github</a>
+      </div>
+    </div>
+
+    <footer>
+      <p>Thank you for choosing Gradely</p>
+    </footer>
+  </body>
+  <script>
+    const HomeButton = document.getElementById("HomeButton");
+    HomeButton.addEventListener("click", backHome);
+
+    function backHome() {
+      console.log("Home button in about clicked!");
+      //console.log(senderID);
+      location.reload();
+    }
+  </script>
+</html>

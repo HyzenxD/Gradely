@@ -1,0 +1,15 @@
+CREATE OR REPLACE PROCEDURE nameNextSession(SESSION_Name IN varchar2 , next_name OUT varchar2) IS 
+curr_year varchar2(5);
+next_month varchar2(20);
+
+BEGIN 
+	curr_year:= substr(SESSION_Name,-4);
+	IF SESSION_NAME LIKE 'Jan%' THEN
+	next_month := 'July';
+	next_name:= next_month ||' ' ||curr_year;
+	ELSE 
+	next_month := 'January';
+	
+	next_name:= next_month || ' ' || (curr_year+1);
+	END IF;
+END;

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.css" />
+    <title>Document</title>
+    <style>
+        div.scroll {
+            Width: 5px;
+            Height: 10 px;
+            Overflow-x: scroll;
+            Overflow-y: scroll;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="table-responsive text-center container div-scroll"
+        style=" height: auto; width : auto; background-color:rgb(237, 207, 169),;" id="div1">
+        <table class="table table-bordered table-hover">
+            <caption style="color: black; font-size: larger;"> Result of <%=strActual%> </caption>
+            <thead class="table-dark">
+                <tr>
+                    <th scope="col">Course_ID</th>
+                    <th scope="col">Course Title</th>
+                    <th scope="col">Session Name</th>
+                    <th scope="col">Level Term</th>
+                    <th scope="col">Credit Hours</th>
+                    <th scope="col">Grade</th>
+                </tr>
+            </thead>
+            <tbody class="table-primary">
+                <% termWiseresults.rows.forEach(result => { %>
+                    <tr>
+                        <td><%= result.COURSE_ID %></td>
+                        <td><%= result.COURSE_TITLE %></td>
+                        <td><%= result.SESSION_NAME %></td>
+                        <td><%= result.LEVEL_TERM %></td>
+                        <td><%= result.CREDIT_HOURS %></td>
+                        <td><%= result.GRADE %></td>
+                    </tr>
+                <% }); %>
+            </tbody>
+        </table>
+        <p style="font-weight: bold; font-size: large;"> Gpa of this term  : <%= gpa.rows[0].GPA %> </p>
+        <p style="font-weight: bold; font-size: large;"> CGPA  : <%= cgpa.rows[0].CGPA %></p>
+    </div>
+</body>
+<script src="/node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+
+</html>

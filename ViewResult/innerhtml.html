@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css" />
+    <title>Document</title>
+    <style>
+        div.scroll {
+            Width: 5px;
+            Height: 10 px;
+            Overflow-x: scroll;
+            Overflow-y: scroll;
+        }
+        .list-group-item-action:hover{
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="dropdown text-center " style="height: 500px; width: 100%; background-color:rgb(183, 221, 209);">
+        <p><strong>Current Level-Term : </strong> </p>
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1"
+            data-bs-toggle="dropdown" aria-expanded="false">
+            Term-Wise
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+            <li><a class="dropdown-item " href="#">Action</a></li>
+            <li><a class="dropdown-item " href="#">Another action</a></li>
+            <li><a class="dropdown-item" href="#">Something else here</a></li>
+        </ul>
+
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1"
+            data-bs-toggle="dropdown" aria-expanded="false">
+            Course-wise
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+            <li><a class="dropdown-item" id="ActionOnCourseWise" href="#" id>Action</a></li>
+            <li><a class="dropdown-item" href="#">Another action</a></li>
+            <li><a class="dropdown-item" href="#">Something else here</a></li>
+        </ul>
+        <div class="table-responsive text-center container div-scroll"
+            style="margin-top:50px ; width : 800px; background-color:rgb(183, 221, 209);" id="div1">
+            <table class="table table-bordered table-hover ">
+                <caption style="color: black; font-size: large;">List of users</caption>
+                <thead class="table-dark">
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">First</th>
+                        <th scope="col">Last</th>
+                        <th scope="col">Handle</th>
+                    </tr>
+                </thead>
+                <tbody class="table-primary">
+                    <tr>
+                        <th scope="row">1</th>
+                        <td>Mark</td>
+                        <td>Otto</td>
+                        <td>@mdo</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">2</th>
+                        <td>Jacob</td>
+                        <td>Thornton</td>
+                        <td>@fat</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">3</th>
+                        <td>Larry</td>
+                        <td>the Bird</td>
+                        <td>@twitter</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="row container-fluid">
+            <div class="col-4 container-md">
+                <p> <b>1st list</b></p>
+                    <ul class="list-group">
+                        <li class="list-group-item list-group-item-action list-group-item-primary" id="item1">Cras justo odio</li>
+                        <li class="list-group-item list-group-item-action list-group-item-primary">Dapibus ac facilisis in</li>
+                        <li class="list-group-item list-group-item-action list-group-item-primary">Morbi leo risus</li>
+                        <li class="list-group-item list-group-item-action list-group-item-primary">Porta ac consectetur ac</li>
+                        <li class="list-group-item list-group-item-action list-group-item-primary">Vestibulum at eros</li>
+                    </ul>
+            </div>
+            <div class="col-4 container-md">
+                <p> 2nd list</p>
+                    <ul class="list-group container-md text-center">
+                        <li class="list-group-item">Cras justo odio</li>
+                        <li class="list-group-item">Dapibus ac facilisis in</li>
+                        <li class="list-group-item">Morbi leo risus</li>
+                        <li class="list-group-item">Porta ac consectetur ac</li>
+                        <li class="list-group-item">Vestibulum at eros</li>
+                    </ul>
+            </div>
+        </div>
+
+    </div>
+</body>
+<script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+<script src="./resultScrip.js"></script>
+
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Notice Form</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f2f2f2;
+        padding: 20px;
+      }
+
+      .container {
+        max-width: 800px;
+        margin: 0 auto;
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+      }
+
+      .form-group {
+        margin-bottom: 20px;
+      }
+
+      label {
+        display: block;
+        font-weight: bold;
+        margin-bottom: 5px;
+      }
+
+      input[type="text"],
+      input[type="number"] {
+        width: 90%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 3px;
+        --margin-left: 2rem;
+      }
+
+      input[type="button"] {
+        background-color: #c48600;
+        color: #fff;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 3px;
+        cursor: pointer;
+      }
+
+      input[type="button"]:hover {
+        background-color: #ffad15;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <h2>Notice</h2>
+      <form>
+        <div class="form-group">
+          <label for="Notice_MSG">Enter Notice</label>
+          <input type="text" id="Notice_MSG" name="Notice_MSG" required />
+        </div>
+        <div class="form-group">
+          <input type="Button" value="Add Notice" id="submitNotice" />
+        </div>
+      </form>
+    </div>
+  </body>
+</html>
