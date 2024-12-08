@@ -196,3 +196,41 @@ app.post("/user", async (req, res) => {
   //res.send(200);
 });
 
+// /user/:id: Dynamic route, user ID diye dashboard access korte dey.
+// req.params.id: URL theke pathano ID fetch kore.
+app.get("/user/:id", async (req, res) => {
+  //wrong password or id page
+  console.log(" get user id method");
+
+  if (req.params.id !== req.session.idN) res.redirect("/wrongPass"); //someone tries to access other id's dashboard insted of his own
+//Render: Dashboard/dashboard ejs file render kore o data send kore { student_data: data.rows[0] }.
+  if (id[0] === "S") {
+    //console.log(id[0]);
+    const data = await run(
+      `SELECT * FROM STUDENT WHERE STUDENT_ID LIKE '${id}'`
+    );
+
+    res.render("Dashboard/dashboard", { student_data: data.rows[0] });
+  } else if (id[0] === "A") {
+    console.log(id);
+
+    const data = await run(`SELECT * FROM ADMIN WHERE ID LIKE '${id}'`);
+
+    res.render("Admin_Dashboard/adminDashboard", {
+      admin_data: data.rows[0],
+      sessionName,
+    });
+  } else if (id[0] === "T") {
+    console.log(id);
+    const data = await run(
+      `SELECT * FROM TEACHER WHERE Teacher_ID LIKE '${id}'`
+    );
+
+    console.log(data.rows[0]["PASSWORD"]);
+
+    res.render("Teacher_Dashboard/DashBoard/teacherDashboard", {
+      teacher_data: data.rows[0],
+    });
+  }
+  //res.send(404);
+});
