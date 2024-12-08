@@ -234,3 +234,42 @@ app.get("/user/:id", async (req, res) => {
   }
   //res.send(404);
 });
+app.get("/wrongPass", (req, res) => {
+  //wrong password or id page
+  console.log(" get wrong pass method");
+  res.render("WrongPass/index");
+  //res.send(404);
+});
+
+//COMPLAIN
+//Render: Complaint_Or_Requests/complaint EJS template page render kore, jeikhane user complaint issue korte pare.
+
+app.get("/UserIssueComplaints", async (req, res) => {
+  //changed the get url, conflicts with
+  console.log("Inside issue Complaints");
+  res.render("Complaint_Or_Requests/complaint");
+});
+//Route: /complaintsSubmit request handle kore (user complaint submit korar jonno).
+app.post("/complaintsSubmit", async (req, res) => {
+  const dataReceived = req.body;
+  console.log(dataReceived.Complaint);
+
+  id = req.session.idN; //session dependent global variable
+  let senderType;
+  if (id[0] === "T") senderType = "Teacher";
+  else senderType = "Student";
+  await run(
+    `INSERT INTO REQEUSTSORCOMPLAINTS
+    (SENDER_TYPE, SENDER_ID, SENDING_TIME, MESSAGE_TYPE, MESSAGE, MESSAGE_ID)
+    VALUES('${senderType}', '${id}', SYSDATE, 'Complaint', '${dataReceived.Complaint}', 'MSG' || MSG_ID.NEXTVAL)`
+  );
+  console.log("inserted");
+  //location.reload();
+
+ 
+});
+
+app.get("/about", async (req, res) => {
+  console.log("Inside about");
+  res.render("About/aboutUs", { senderID: req.session.idN });
+});
