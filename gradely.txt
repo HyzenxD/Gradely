@@ -1,0 +1,39 @@
+Title: Gradely
+
+A system similar to RUET ugresult , for storing, viewing and updating student information and specially students' grades. View individual, section-wise, course-wise results and analytics.
+
+
+Sir's suggestion:
+>add new student by student
+>Admin check and approve
+
+Plan: 3 types of logins: Student , teacher, Admin
+
+---Student login:
+1) View information like name, address, etc
+ -> Request change information to admin(later)
+2) View courses : taken, available, completed
+-> Enroll new courses if prerequisites completed
+3) View faculty info table, Advisor info
+4) View Grades :
+	-> Term-wise like RUET ugresult
+	-> Course-wise - TF, CT, Attendance 
+  -> Dept Result table
+5)  Request recheck(later)
+
+---Teacher Login:
+1) View grades:
+	->Section wise
+	->Dept wise
+ -> Course wise
+2) View information
+->Request Change to Admin(Later)
+3) View courses taking currently and their schedule
+4) View pending results and entry marks (Later)
+
+---Admin Login 
+1) View all students
+2) View all teachers
+3) View all courses
+4) Add student , teachers , courses
+5) View info update requests and approve(later)

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.css" />
+    <title>Document</title>
+    <style>
+    </style>
+</head>
+
+<body>
+    <div class="table-responsive text-center container div-scroll"
+        style=" height: 500px; width : auto; background-color:rgb(237, 207, 169),;" id="div1">
+        <table class="table table-bordered table-hover">
+            <caption style="color: black; font-size: larger;">List of Teachers</caption>
+            <thead class="table-dark">
+                <tr>
+                    <th scope="col">Teacher ID</th>
+                    <th scope="col">First Name</th>
+                    <th scope="col">Last Name</th>
+                    <th scope="col">Department</th>
+                    <th scope="col">Salary</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Phone No</th>
+                    <th scope="col">NID No</th>
+                    <th scope="col">Address</th>
+                    <th scope="col">Designation</th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody class="table-primary">
+                <% data.rows.forEach(teacher=> { %>
+                    <tr>
+                        <td>
+                            <%= teacher.TEACHER_ID %>
+                        </td>
+                        <td>
+                            <%= teacher.FIRST_NAME %>
+                        </td>
+                        <td>
+                            <%= teacher.LAST_NAME %>
+                        </td>
+                        <td>
+                            <%= teacher.DEPARTMENT%>
+                        </td>
+                        <td>
+                            <%= teacher.SALARY%>
+                        </td>
+                        <td>
+                            <%= teacher.EMAIL%>
+                        </td>
+                        <td>
+                            <%= teacher.PHONE_NO %>
+                        </td>
+                        <td>
+                            <%= teacher.NID_NO %>
+                        </td>
+                        <td>
+                            <%= teacher.ADDRESS %>
+                        </td>
+                        <td>
+                            <%= teacher.DESIGNATION %>
+                        </td>
+                        <td ><button class="btn btn-dark btn-sm deleteTeacher">Delete</button></td>
+                    </tr>
+                    <% }); %>
+            </tbody>
+        </table>
+    </div>
+    </div>
+</body>
+<script src="/node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+
+</html>

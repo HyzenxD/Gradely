@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.css" />
+    <title>Document</title>
+    <style>
+        .p1 {
+            margin-top: 20px;
+            margin-right: 50px;
+            margin-bottom: 20px;
+            margin-left: 15px;
+            display: inline-block;
+            font-weight: bold;
+            font-size: larger;
+            color: aliceblue;
+            background-color: black;
+            width: 300px;
+
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="table-responsive text-center container div-scroll"
+        style="margin-top:30px ; height: auto; width : auto; background-color:rgb(183, 221, 209); margin-bottom: 30px;"
+        id="div1">
+        <p class="p1">Total Students : <%= noOfData.rows[0].COUNT %>
+        </p>
+        <button class="btn btn-dark" type="button" id="allStudents">
+            All Student
+        </button>
+        <button class="btn btn-dark dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown"
+            aria-expanded="false">
+            Department Wise
+        </button>
+        <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton1">
+            <% depts.rows.forEach(department=> { %>
+                <li><a class="dropdown-item Deptsharedanchor" href="#">
+                        <%= department.DEPARTMENT %>
+                    </a></li>
+                <% }); %>
+        </ul>
+        <button class="btn btn-dark dropdown-toggle" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown"
+            aria-expanded="false">
+            Course Wise
+        </button>
+        <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton3">
+            <li>
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Enter Course ID" id="courseWiseStudentSearchBox">
+                    <input type="text" class="form-control" placeholder="Enter Session" id="courseWiseStudentSessionSearchBox">
+                    <button class="btn btn-secondary" id="courseWiseStudentSearchButton">Search</button>
+                </div>
+            </li>
+        </ul>
+        <button class="btn btn-dark dropdown-toggle" type="button" id="dropdownMenuButton3" data-bs-toggle="dropdown"
+            aria-expanded="false" style="margin-right: 30px;">
+            Term Wise
+        </button>
+        <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton3">
+            <% level_terms.rows.forEach(L_T=> { %>
+                <li><a class="dropdown-item L_Tsharedanchor" href="#">
+                        <%= L_T.LEVEL_TERM %>
+                    </a></li>
+                <% }); %>
+        </ul>
+        <input type="text" placeholder="Search By Student ID" id="idWiseStudentSearchBox" style="width: 180px;">
+        <button class="btn btn-secondary btn-sm" id="idWiseStudentSearchButton" style="margin-right: 40px;">Search</button>
+        <button class="btn btn-sm btn-secondary type="button" id="addStudent">
+            ADD Student
+        </button>
+        <div class="table-responsive text-center container"
+            style="margin-top: 30px; height: auto; width : auto; background-color:rgb(183, 221, 209);" id="div2">
+        </div>
+    </div>
+    <script src="/node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+</body>
+
+
+</html>

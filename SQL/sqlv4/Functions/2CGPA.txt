@@ -1,0 +1,56 @@
+ CREATE OR REPLACE FUNCTION GRADELY.Calculate_CGPA(S_ID IN VARCHAR2)
+RETURN NUMBER IS
+
+CurrentLT varchar(5);
+cgpa NUMBER(8,4);
+totalCredit NUMBER;
+i varchar(5);
+
+gp NUMBER(8,4);
+cred number;
+
+BEGIN
+SELECT LEVEL_TERM INTO CurrentLT
+FROM STUDENT s 
+WHERE STUDENT_ID = S_ID ;
+
+IF CurrentLT='1-1' THEN
+RETURN 0 ;
+ELSE
+i:='1-1';
+cgpa:=0;
+totalCredit:=0;
+LOOP
+	SELECT g.GPA INTO gp
+	FROM GPA g 
+	WHERE STUDENT_ID = S_ID AND LEVEL_TERM =i;
+
+	SELECT g.TOTAL__CREDIT  INTO cred
+	FROM GPA g 
+	WHERE STUDENT_ID = S_ID AND LEVEL_TERM =i;
+
+	cgpa:= cgpa+gp*cred;
+	totalCredit := totalCredit+cred;
+
+	i := nextTerm(i);
+
+	EXIT WHEN (i=CurrentLT);
+	
+END LOOP;
+	IF totalCredit = 0 THEN 
+	cgpa:=0;
+	ELSE 
+	cgpa := cgpa/totalCredit;
+	END IF;
+END IF ;
+RETURN cgpa ; --return 
+
+EXCEPTION
+WHEN NO_DATA_FOUND THEN
+RETURN -1 ;
+WHEN TOO_MANY_ROWS THEN
+RETURN -2 ;
+WHEN OTHERS THEN
+RETURN -3 ;
+END ;
+ 

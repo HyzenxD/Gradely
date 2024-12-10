@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.css" />
+    <title>Document</title>
+    <style>
+    </style>
+</head>
+
+<body>
+    <div class="table-responsive text-center container div-scroll"
+        style=" height: 500px; width : auto; background-color:rgb(163, 213, 215);" id="div1">
+        <table class="table table-bordered table-hover">
+            <thead class="table-dark">
+                <tr>
+                    <th scope="col">Course ID</th>
+                    <th scope="col">Session Name</th>
+                    <th scope="col">Exam date</th>
+
+                </tr>
+            </thead>
+            <tbody class="table-primary">
+                <% exams.rows.forEach(exam=> { %>
+                    <tr>
+                        <td>
+                            <%= exam.COURSE_ID %>
+                        </td>
+                        <td>
+                            <%= exam.SESSION_NAME %>
+                        </td>
+                        <td>
+                            <%= exam.EXAMDATE %>
+                        </td>
+                    </tr>
+                    <% }); %>
+            </tbody>
+        </table>
+    </div>
+    </div>
+</body>
+<script src="/node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+
+</html>

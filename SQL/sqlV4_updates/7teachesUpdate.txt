@@ -1,0 +1,2 @@
+ALTER TABLE TEACHES
+  ADD STATUS varchar2(40) DEFAULT 'Current';

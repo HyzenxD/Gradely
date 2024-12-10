@@ -1,0 +1,161 @@
+CREATE TABLE Teacher(
+	Teacher_ID varchar(10),
+	First_Name varchar(30) NOT null, 
+	Last_Name varchar(30),
+	Department varchar(50), --department name
+	Salary NUMERIC(8,0) CHECK(Salary>10000),	
+	Nid_No varchar(13),
+	Address varchar(100),
+	Email varchar(100),
+	Phone_No varchar(15)  NOT null,---
+	Password varchar(34) NOT null, ---
+	Designation varchar(25),
+	PRIMARY KEY(Teacher_ID)
+);
+
+CREATE TABLE Student(
+	Student_ID varchar(10),
+	First_Name varchar(30) NOT null,
+	Last_Name varchar(30),
+	Level_Term varchar(5) ,---
+	Department varchar(50), --department name
+	Email varchar(100),
+	Phone_No varchar(15) NOT null,---
+	Nid_No varchar(15),---
+	Address varchar(100),
+	Credits_Completed numeric(6,2) check(Credits_Completed>=0),
+	Section_name varchar(2),
+	Advisor_ID varchar(10),
+	Password varchar(34),---
+	img_url varchar(34),---
+	PRIMARY key(Student_ID),
+	FOREIGN key(Advisor_ID) REFERENCES Teacher(Teacher_ID)
+		ON DELETE SET NULL 
+
+);
+
+
+CREATE TABLE Courses(
+	Course_ID Varchar(10),
+	Course_Title varchar(100) NOT null,
+	Department varchar(50),
+	Credit_Hours numeric(4,2) CHECK(Credit_Hours>0),
+	Level_Term varchar(5),
+    	Department_Offered varchar(50),
+	Prerequisites Varchar(10) REFERENCES Courses(Course_ID)---
+		ON DELETE SET null,---
+	PRIMARY Key(course_ID)---
+);
+
+CREATE TABLE Sessions(
+	Session_Name varchar(15) ,
+	Course_ID varchar(10),
+	PRIMARY Key(Session_name,Course_ID),
+	FOREIGN key(Course_ID) REFERENCES Courses(Course_ID)
+		ON DELETE CASCADE
+		
+);
+
+
+CREATE TABLE Teaches(
+	Teacher_ID varchar(10),
+	Course_ID varchar(10),
+	Session_Name varchar(15),
+	PRIMARY key(Teacher_ID,Course_ID,Session_Name),
+	FOREIGN KEY(Teacher_ID) REFERENCES Teacher(Teacher_ID)
+		ON DELETE CASCADE,---
+	Foreign key(Course_ID,Session_Name) REFERENCES Sessions(Course_ID,Session_Name)
+  		ON DELETE CASCADE
+
+);
+
+CREATE TABLE Enrolls(
+	Student_ID varchar(10),
+	Session_Name varchar(15),
+	Course_ID varchar(10),
+	--Level_Term varchar(5), 
+	Status varchar(10),
+	PRIMARY Key(Student_ID,Session_name,Course_ID),
+	FOREIGN Key(Student_ID) REFERENCES Student(Student_ID)
+		ON DELETE CASCADE,
+	Foreign key(Course_ID,Session_Name) REFERENCES Sessions(Course_ID,Session_Name)
+  		ON DELETE CASCADE
+
+);
+
+
+CREATE TABLE Results(
+	Student_ID varchar(10),
+	Course_ID Varchar(10),
+	Attendance NUMBER(6,2) CHECK(Attendance>=0),--LIKE OUT OF 30 OR 40
+	CT1 NUMBER(3,0),
+	CT2 NUMBER(3,0),
+	CT3 NUMBER(3,0),
+	CT4 NUMBER(3,0),
+	CT5 NUMBER(3,0),---
+	Term_Final NUMBER(6,2), ---
+	Total NUMBER(6,2) check(Total>=0),
+	Grade NUMBER(6,2) ,
+	PRIMARY key(Student_ID,Course_ID),
+	FOREIGN Key(Student_ID) REFERENCES Student(Student_ID)
+		ON DELETE CASCADE,
+	FOREIGN key(Course_ID) REFERENCES Courses(Course_ID)
+		ON DELETE CASCADE
+		
+); 
+
+CREATE TABLE GPA(
+	Student_ID varchar(10),
+	Level_Term varchar(5),
+	GPA NUMBER(5,2) check(GPA>=0) NOT NULL,
+	Total__Credit NUMBER(6,2),
+	PRIMARY KEY(Student_ID,Level_Term),
+	FOREIGN Key(Student_ID) REFERENCES Student(Student_ID)
+		ON DELETE CASCADE
+		
+);
+
+CREATE TABLE Exam(
+	Course_ID varchar(10),
+	Session_Name varchar(15),
+  	Exam_Date DATE,
+  	PRIMARY key(Course_ID,Session_Name),
+  	Foreign key(Course_ID,Session_Name) REFERENCES Sessions(Course_ID,Session_Name)
+  		ON DELETE CASCADE
+);
+
+
+CREATE TABLE Admin(
+	ID varchar(10),
+	First_Name varchar(30) NOT null,
+	Last_Name varchar(30),
+	Email varchar(30),
+	Phone_No varchar(15) NOT null,---
+	Password varchar(30),
+	PRIMARY KEY(ID)
+);
+
+
+CREATE TABLE ReqeustsOrComplaints(
+	Sender_Type varchar(20), --who sent the complaints - student OR teacher
+	Sender_Id varchar(10),
+	Sending_time DATE,
+	Message_type varchar(15), --complaints OR requests
+	Message varchar(200),
+	Message_ID varchar(10),
+	PRIMARY KEY(Message_ID)---
+	
+);
+
+CREATE TABLE Logs(
+	Log_ID varchar(5),
+	Action_type varchar(20) NOT null,
+	Action_On varchar(20) ,
+	Acted_by varchar(12) NOT null, --Id OF doer
+	Action_time DATE,
+	PRIMARY key(Log_ID)
+);
+
+
+
+ 

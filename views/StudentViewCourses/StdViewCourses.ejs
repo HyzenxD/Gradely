@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.css" />
+    <title>Document</title>
+    <style>
+        div.scroll {
+            Width: 5px;
+            Height: 10 px;
+            Overflow-x: scroll;
+            Overflow-y: scroll;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="table-responsive text-center container  bg-transparent div-scroll"
+        style="width : 100%;" id="div1">
+        <p><b>Current level-term : <%= level_term.rows[0].LEVEL_TERM %></b></p>
+        <p><b>Department : <%= dept.rows[0].DEPARTMENT %></b></p>
+        <table class="table table-bordered table-hover " style="margin-top: 20px;">
+            <thead class="table-dark">
+                <tr>
+                    <th scope="col">Course ID</th>
+                    <th scope="col">Course Title</th>
+                    <th scope="col">Course Credit</th>
+                    <th scope="col">Level-Term</th>
+                    <th scope="col">Session</th>
+                </tr>
+            </thead>
+            <tbody class="table-primary">
+                <% data.rows.forEach(courses=> { %>
+                    <tr>
+                        <td>
+                            <%= courses.COURSE_ID %>
+                        </td>
+                        <td>
+                            <%= courses.COURSE_TITLE %>
+                        </td>
+                        <td>
+                            <%= courses.CREDIT_HOURS %>
+                        </td>
+                        <td>
+                            <%= courses.LEVEL_TERM%>
+                        </td>
+                        <td>
+                            <%= courses.SESSION_NAME%>
+                        </td>
+                    </tr>
+                    <% }); %>
+            </tbody>
+        </table>
+    </div>
+
+</body>
+<script src="/node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+
+</html>

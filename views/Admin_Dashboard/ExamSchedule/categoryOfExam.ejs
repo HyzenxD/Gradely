@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <title>Document</title>
+    <style>
+        div.scroll {
+            Width: 5px;
+            Height: 10 px;
+            Overflow-x: scroll;
+            Overflow-y: scroll;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="dropdown text-center " style="height: auto; width: 100%;">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="examScheduleDepartmentButton"
+            data-bs-toggle="dropdown" aria-expanded="false">
+            Department
+        </button>
+        <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="examScheduleDepartmentButton">
+            <% departments.rows.forEach(dept=> { %>
+                <li><a class="dropdown-item examScheduleDepartmentSharedAnchor" href="#">
+                        <%= dept.DEPARTMENT_OFFERED %>
+                    </a></li>
+                <% }); %>
+        </ul>
+
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="examScheduleLevelTermButton"
+            data-bs-toggle="dropdown" aria-expanded="false">
+            Level_term
+        </button>
+        <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="examScheduleDepartmentButton">
+            <% LEVEL_TERMS.rows.forEach(levelTerm=> { %>
+                <li><a class="dropdown-item examScheduleLvelTermSharedAnchor" href="#">
+                        <%= levelTerm.LEVEL_TERM %>
+                    </a></li>
+                <% }); %>
+        </ul>
+        <div class="table-responsive text-center bg-transparent container div-scroll"
+            style=" height: auto; width : auto; margin-top: 20px;" id="div2">
+        </div>
+    </div>
+</body>
+<script src="/node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+
+</html>

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>Student Information</title>
+    <style>
+        body {
+            background-color: rgb(192, 245, 247); /* Light Blue background */
+            font-family: 'Arial', sans-serif;
+        }
+
+        .info-card {
+            background-color: #cfe2ff; /* White background for student details */
+            border-left: 5px solid #003366; /* Dark Blue border */
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .info-title {
+            font-weight: bold;
+            color: #003366; /* Dark Blue for titles */
+            font-size: 16px;
+        }
+
+        .info-value {
+            color: #3c3c3c; /* Dark Gray for text */
+            font-size: 16px;
+        }
+
+        .side-panel {
+            background-color: #cfe2ff; /* Light background for side panel */
+            border-radius: 10px;
+            padding: 15px;
+            text-align: center;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .side-panel h5 {
+            margin-bottom: 10px;
+            font-size: 18px;
+            color: #3c3c3c; /* Dark Gray text */
+        }
+
+        .side-panel p {
+            font-size: 16px;
+            color: #212529; /* Darker text */
+        }
+
+        .badge-status {
+            background-color: #198754; /* Bootstrap success color */
+            color: white;
+            font-size: 16px;
+            padding: 5px 15px;
+            border-radius: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="row">
+            <!-- Left side: Student Information -->
+            <div class="col-md-8">
+                <div class="info-card">
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <p class="info-title">First Name:</p>
+                            <p class="info-value"><%= student_data.FIRST_NAME %></p>
+                        </div>
+                        <div class="col-md-6">
+                            <p class="info-title">Last Name:</p>
+                            <p class="info-value"><%= student_data.LAST_NAME %></p>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <p class="info-title">Student ID:</p>
+                            <p class="info-value"><%= student_data.STUDENT_ID %></p>
+                        </div>
+                        <div class="col-md-6">
+                            <p class="info-title">Level-Term:</p>
+                            <p class="info-value"><%= student_data.LEVEL_TERM %></p>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <p class="info-title">Department:</p>
+                            <p class="info-value"><%= student_data.DEPARTMENT %></p>
+                        </div>
+                        <div class="col-md-6">
+                            <p class="info-title">Section:</p>
+                            <p class="info-value"><%= student_data.SECTION_NAME %></p>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <p class="info-title">Email:</p>
+                            <p class="info-value"><%= student_data.EMAIL %></p>
+                        </div>
+                        <div class="col-md-6">
+                            <p class="info-title">Phone No.:</p>
+                            <p class="info-value"><%= student_data.PHONE_NO %></p>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-md-12">
+                            <p class="info-title">Address:</p>
+                            <p class="info-value"><%= student_data.ADDRESS %></p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <p class="info-title">NID No.:</p>
+                            <p class="info-value"><%= student_data.NID_NO %></p>
+                        </div>
+                        <div class="col-md-6">
+                            <p class="info-title">Credits Completed:</p>
+                            <p class="info-value"><%= student_data.CREDITS_COMPLETED %></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right side: Student Photo and Status -->
+            <div class="col-md-4">
+                <div class="side-panel">
+                    <img src="/views/images/user2.jpg" alt="Student Photo" class="img-thumbnail mb-3">
+                    <span class="badge-status">Enrolled</span>
+                    <hr>
+                    <h5>Absences:</h5>
+                    <p>9 Days</p>
+                    <h5>Behavior:</h5>
+                    <p>-1</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

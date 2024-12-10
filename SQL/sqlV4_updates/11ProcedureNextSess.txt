@@ -1,0 +1,81 @@
+CREATE OR REPLACE PROCEDURE GRADELY.nameNextSession(SESSION_Name IN varchar2 , next_name OUT varchar2) IS
+curr_year varchar2(5);
+next_month varchar2(20);
+
+BEGIN
+curr_year:= substr(SESSION_Name,-4);
+IF SESSION_NAME LIKE 'Jan%' THEN
+next_month := 'July';
+next_name:= next_month ||' ' ||curr_year;
+ELSE
+next_month := 'January';
+
+next_name:= next_month || ' ' || (curr_year+1);
+END IF;
+END;
+
+CREATE OR REPLACE PROCEDURE GRADELY.nextSession IS
+sess_name varchar2(30);
+curr_sess varchar2(30);
+month_name varchar2(15);
+year_name varchar2(6);
+cred NUMBER(6,3);
+credTotal NUMBER(6,3);
+gpas NUMBER(6,3);
+lvlt VARCHAR(30);
+BEGIN
+SELECT MONTH_name INTO month_name FROM CURRENT_SESSION cs ;
+SELECT year_name INTO year_name FROM CURRENT_SESSION cs ;
+SELECT SESSION_NAME INTO curr_sess FROM CURRENT_SESSION cs2 ;
+IF month_name LIKE 'Jan%' THEN -- NEXT SESSION IS july OF same year
+sess_name:='July ' || year_name;
+FOR R IN (SELECT COURSE_ID FROM COURSES c WHERE LEVEL_TERM LIKE '%-2')
+LOOP
+INSERT INTO GRADELY.SESSIONS
+(SESSION_NAME, COURSE_ID)
+VALUES(sess_name, R.COURSE_ID);
+END LOOP;
+ELSE
+sess_name:='January ' || (year_name)+1;
+FOR R IN (SELECT COURSE_ID FROM COURSES c WHERE LEVEL_TERM LIKE '%-1')
+LOOP
+INSERT INTO GRADELY.SESSIONS
+(SESSION_NAME, COURSE_ID)
+VALUES(sess_name, R.COURSE_ID);
+END LOOP;
+END IF;
+
+FOR St IN (SELECT UNIQUE STUDENT_ID  from ENROLLS WHERE SESSION_NAME = curr_sess)
+LOOP
+for cours in (SELECT COURSE_ID from ENROLLS where SESSION_NAME = curr_sess and STUDENT_ID = St.STUDENT_ID)
+LOOP
+SELECT CREDIT_HOURS into cred
+FROM COURSES
+WHERE COURSE_ID = cours.COURSE_ID  ;
+SELECT LEVEL_TERM into lvlt from COURSES  where COURSE_ID= cours.COURSE_ID ;
+credTotal:= credTotal+ cred;
+END LOOP;
+
+SELECT GPA INTO gpas FROM GPA g WHERE STUDENT_ID LIKE St.Student_id AND LEVEL_TERM LIKE lvlt;
+SELECT CREDITS_COMPLETED INTO cred  FROM STUDENT s WHERE STUDENT_ID LIKE St.STUDENT_ID;
+
+IF gpas>=1 THEN
+UPDATE STUDENT SET LEVEL_TERM = nextterm(lvlt);
+UPDATE ENROLLS  SET status='Completed' WHERE status LIKE 'Current%' AND STUDENT_ID LIKE St.student_id;
+UPDATE STUDENT SET CREDITS_COMPLETED = cred + credTotal;
+END IF;
+
+END LOOP;
+
+DELETE FROM CURRENT_SESSION cs ;
+IF month_name LIKE 'Jan' then
+month_name:='July';
+ELSE
+month_name:='January';
+year_name:= (year_name+1);
+END IF;
+INSERT INTO GRADELY.CURRENT_SESSION
+(SESSION_NAME, MONTH_NAME, YEAR_NAME)
+VALUES(month_name || ' ' || year_name, month_name, year_name);
+
+END;

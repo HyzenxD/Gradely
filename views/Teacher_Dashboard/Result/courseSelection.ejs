@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.css" />
+    <title>Document</title>
+    <style>
+    </style>
+</head>
+
+<body>
+    <div class="text-center container div-scroll"
+        style="margin-top:30px ; height: auto; width : auto; background-color:rgb(148, 189, 218); margin-bottom: 30px;"
+        id="div1">
+        <button class="btn btn-dark dropdown-toggle" type="button" id="courseForResultButton" data-bs-toggle="dropdown"
+            aria-expanded="false" style="margin-top:30px">
+            Select Course
+        </button>
+        <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="courseForResultButton">
+            <% courses.rows.forEach(course=> { %>
+                <li><a class="dropdown-item courseSelectionForResultAnchor" href="#">
+                        <%= course.COURSE_ID %>
+                    </a></li>
+                <% }); %>
+        </ul>
+        <div class="text-center container"
+            style="margin-top: 30px; height: auto; width : auto;" id="div2">
+        </div>
+    </div>
+    <script src="/node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+</body>
+
+
+</html>

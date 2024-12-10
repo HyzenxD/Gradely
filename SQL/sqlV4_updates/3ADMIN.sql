@@ -1,0 +1,5 @@
+INSERT INTO "ADMIN" ("ID", "FIRST_NAME", "LAST_NAME", "EMAIL", "PHONE_NO", "PASSWORD") VALUES ('A12', 'Lizette', 'Volcker', 'lvolcker2@xrea.com', '198-273-2807', '$2b$04$rPgpgFguqI8br6TBCT.cn.BfAmMj2u0/sh.4eOSLEUEOxhDz32SfO');
+INSERT INTO "ADMIN" ("ID", "FIRST_NAME", "LAST_NAME", "EMAIL", "PHONE_NO", "PASSWORD") VALUES ('A13', 'Hestia', 'Rigts', 'hrigts3@ezinearticles.com', '507-671-1116', '$2b$04$.SPS7JMwCBack9qYaMiSX.WP/q2cP3xhO.ma3Q7rB3Odo/bFHqLje');
+INSERT INTO "ADMIN" ("ID", "FIRST_NAME", "LAST_NAME", "EMAIL", "PHONE_NO", "PASSWORD") VALUES ('A14', 'Caren', 'Blue', 'cblue4@pcworld.com', '865-545-5709', '$2b$04$Bo2bbPinmLTZQywuhJ93PeeXa3sM7OAP8Bm0BuomXKTOAie/IzJma');
+INSERT INTO "ADMIN" ("ID", "FIRST_NAME", "LAST_NAME", "EMAIL", "PHONE_NO", "PASSWORD") VALUES ('A10', 'Cyrillus', 'Thistleton', 'cthistleton0@ebay.co.uk', '461-387-3627', '$2b$04$6fIGqgeTQ.eo4yQ746s35.nRR2C8icAyGXNX/OXqzwUzTBxA8yOPO');
+INSERT INTO "ADMIN" ("ID", "FIRST_NAME", "LAST_NAME", "EMAIL", "PHONE_NO", "PASSWORD") VALUES ('A11', 'Moore', 'Moggle', 'mmoggle1@google.nl', '847-478-9174', '$2b$04$ipTIv4HBFF1yRV998jzv3eVp68CsKxsTUFCrV.AcgjtZHNAB77lyi');

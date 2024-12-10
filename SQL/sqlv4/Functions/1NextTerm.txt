@@ -1,0 +1,13 @@
+CREATE OR REPLACE FUNCTION nextTerm(lt IN varchar2) RETURN varchar2 IS 
+BEGIN 
+	if(lt = '1-1') THEN  RETURN '1-2';
+	ELSif(lt = '1-2') THEN RETURN '2-1';
+	ELSif(lt = '2-1') THEN RETURN '2-2';
+	ELSif(lt = '2-2') THEN RETURN '3-1';
+	ELSif(lt = '3-1') THEN RETURN '3-2';
+	ELSif(lt = '3-2') THEN RETURN '4-1';
+	ELSif(lt = '4-1') THEN RETURN '4-2';
+	ELSif(lt = '4-2') THEN RETURN 'grad';
+	END if;
+
+END;

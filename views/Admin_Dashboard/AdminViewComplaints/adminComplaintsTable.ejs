@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.css" />
+    <title>Document</title>
+    <style>
+    </style>
+</head>
+
+<body>
+    <div class="table-responsive text-center container div-scroll"
+        style=" height: 500px; width : auto; background-color:rgb(237, 207, 169),;" id="div1">
+        <table class="table table-bordered table-hover">
+            <caption style="color: black; font-size: larger;"></caption>
+            <thead class="table-dark">
+                <tr>
+                    <th scope="col">Message ID</th>
+                    <th scope="col">Sender Type</th>
+                    <th scope="col">Sender ID</th>
+                    <th scope="col">Sending Time</th>
+                    <th scope="col">Message Type</th>
+                    <th scope="col">Message</th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody class="table-primary">
+                <% complaintsTable.rows.forEach(complaints=> { %>
+                    <tr>
+                        <td>
+                            <%= complaints.MESSAGE_ID %>
+                        </td>
+                        <td>
+                            <%= complaints.SENDER_TYPE %>
+                        </td>
+                        <td>
+                            <%= complaints.SENDER_ID %>
+                        </td>
+                        <td>
+                            <%= complaints.SENDING_TIME %>
+                        </td>
+                        <td>
+                            <%= complaints.MESSAGE_TYPE %>
+                        </td>
+                        <td>
+                            <%= complaints.MESSAGE %>
+                        </td>
+                        <td><button class="btn btn-dark resolveSharedClass" >Resolve</button></td>
+                    </tr>
+                    <% }); %>
+            </tbody>
+        </table>
+        <button class="btn btn-dark" type="button" id="resolveAll" style="margin-top: 20px; margin-bottom: 30px;"
+        <% if (complaintsTable.rows.length===0) { %>disabled<% } %>
+        >
+            Resolve All
+        </button>
+    </div>
+    </div>
+</body>
+<script src="/node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+
+</html>

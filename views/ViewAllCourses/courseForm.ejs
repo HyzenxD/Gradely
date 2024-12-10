@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Course Form</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f2f2f2;
+        padding: 20px;
+      }
+
+      .container {
+        max-width: 800px;
+        margin: 0 auto;
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+      }
+
+      .form-group {
+        margin-bottom: 20px;
+      }
+
+      label {
+        display: block;
+        font-weight: bold;
+        margin-bottom: 5px;
+      }
+
+      input[type="text"],
+      input[type="number"] {
+        width: 90%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 3px;
+        --margin-left: 2rem;
+      }
+
+      input[type="submit"] {
+        background-color: #c48600;
+        color: #fff;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 3px;
+        cursor: pointer;
+      }
+
+      input[type="submit"]:hover {
+        background-color: #ffad15;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <h2>Course Information Form</h2>
+      <form action="/adminNewCourse" method="POST">
+        <div class="form-group">
+          <label for="COURSE_ID">COURSE ID:</label>
+          <input type="text" id="COURSE_ID" name="COURSE_ID" required />
+        </div>
+        <div class="form-group">
+          <label for="COURSE_TITLE">COURSE TITLE:</label>
+          <input type="text" id="COURSE_TITLE" name="COURSE_TITLE" required />
+        </div>
+        <div class="form-group">
+          <label for="DEPARTMENT">DEPARTMENT:</label>
+          <input type="text" id="DEPARTMENT" name="DEPARTMENT" />
+        </div>
+        <div class="form-group">
+          <label for="CREDIT_HOURS">CREDIT HOURS :</label>
+          <input
+            type="number"
+            step="0.1"
+            id="CREDIT_HOURS"
+            name="CREDIT_HOURS"
+          />
+        </div>
+        <div class="form-group">
+          <label for="LEVEL_TERM">LEVEL-TERM:</label>
+          <input type="text" id="LEVEL_TERM" name="LEVEL_TERM" />
+        </div>
+        <div class="form-group">
+          <label for="DEPARTMENT_OFFERED">DEPARTMENT OFFERED:</label>
+          <input
+            type="text"
+            id="DEPARTMENT_OFFERED"
+            name="DEPARTMENT_OFFERED"
+          />
+        </div>
+        <div class="form-group">
+          <label for="PREREQUISITES">PREREQUISITES :</label>
+          <input type="text" id="PREREQUISITES" name="PREREQUISITES" />
+        </div>
+        <div class="form-group">
+          <input type="submit" value="Submit" id="submit" />
+        </div>
+      </form>
+    </div>
+  </body>
+</html>

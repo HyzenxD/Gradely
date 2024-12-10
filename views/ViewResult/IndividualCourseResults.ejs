@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.css" />
+    <title>Document</title>
+    <style>
+        div.scroll {
+            Width: 5px;
+            Height: 10 px;
+            Overflow-x: scroll;
+            Overflow-y: scroll;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="table-responsive text-center container div-scroll"
+        style=" height: auto; width : auto; background-color:rgb(237, 207, 169),;" id="div1">
+        <table class="table table-bordered table-hover">
+            <caption style="color: black; font-size: larger;"> Result of <%=strActual %> </caption>
+            <thead class="table-dark">
+                <tr>
+                    <th scope="col">Student ID</th>
+                    <th scope="col">Course ID</th>
+                    <th scope="col">Attendance</th>
+                    <th scope="col">CT1</th>
+                    <th scope="col">CT2</th>
+                    <th scope="col">CT3</th>
+                    <th scope="col">CT4</th>
+                    <th scope="col">CT5</th>
+                    <th scope="col">Term Final</th>
+                    <th scope="col">Total</th>
+                    <th scope="col">Grade</th>
+                </tr>
+            </thead>
+            <tbody class="table-primary">
+                <% results.rows.forEach(result => { %>
+                    <tr>
+                        <td><%= result.STUDENT_ID %></td>
+                        <td><%= result.COURSE_ID %></td>
+                        <td><%= result.ATTENDANCE %></td>
+                        <td><%= result.CT1 !== null ? result.CT1 : '-' %></td>
+                        <td><%= result.CT2 !== null ? result.CT2 : '-' %></td>
+                        <td><%= result.CT3 !== null ? result.CT3 : '-' %></td>
+                        <td><%= result.CT4 !== null ? result.CT4 : '-' %></td>
+                        <td><%= result.CT5 !== null ? result.CT5 : '-' %></td>
+                        <td><%= result.TERM_FINAL %></td>
+                        <td><%= result.TOTAL %></td>
+                        <td><%= result.GRADE %></td>
+                    </tr>
+                <% }); %>
+            </tbody>
+        </table>
+    </div>
+    </div>
+</body>
+<script src="/node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.css" />
+    <title>Document</title>
+    <style>
+    </style>
+</head>
+
+<body>
+    <div class="table-responsive text-center container div-scroll"
+        style=" height: 500px; width : auto; background-color:rgb(237, 207, 169),;" id="div1">
+        <table class="table table-bordered table-hover">
+            <caption style="color: black; font-size: larger;">List of Courses</caption>
+            <thead class="table-dark">
+                <tr>
+                    <th scope="col">Course ID</th>
+                    <th scope="col">Course Title</th>
+                    <th scope="col">Session</th>
+                    <th scope="col">Department</th>
+                    <th scope="col">Credit Hours</th>
+                    <th scope="col">Level-Term</th>
+                    <th scope="col">Department Offered</th>
+                </tr>
+            </thead>
+            <tbody class="table-primary">
+                <% courses.rows.forEach(course=> { %>
+                    <tr>
+                        <td>
+                            <%= course.COURSE_ID %>
+                        </td>
+                        <td>
+                            <%= course.COURSE_TITLE %>
+                        </td>
+                        <td>
+                            <%= course.SESSION_NAME %>
+                        </td>
+                        <td>
+                            <%= course.DEPARTMENT %>
+                        </td>
+                        <td>
+                            <%= course.CREDIT_HOURS %>
+                        </td>
+                        <td>
+                            <%= course.LEVEL_TERM %>
+                        </td>
+                        <td>
+                            <%= course.DEPARTMENT_OFFERED %>
+                        </td>
+                    
+                    </tr>
+                    <% }); %>
+            </tbody>
+        </table>
+    </div>
+    </div>
+</body>
+<script src="/node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+
+</html>

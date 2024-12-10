@@ -1,0 +1,35 @@
+CREATE OR REPLACE PROCEDURE SessionGPA IS 
+curr_sess varchar2(30);
+cred NUMBER(6,3);
+credTotal NUMBER(6,3);
+gpas NUMBER(6,3);
+gp  NUMBER(6,3);
+lvlt VARCHAR(30);
+BEGIN
+
+	SELECT SESSION_NAME INTO curr_sess FROM CURRENT_SESSION ;
+for St in (SELECT UNIQUE STUDENT_ID  from ENROLLS WHERE SESSION_NAME = curr_sess)
+LOOP
+credTotal :=0;
+gpas:=0;
+	for cours in (SELECT COURSE_ID from ENROLLS where SESSION_NAME = curr_sess and STUDENT_ID = St.STUDENT_ID)
+	LOOP
+	SELECT CREDIT_HOURS into cred  
+	FROM COURSES 
+	WHERE COURSE_ID = cours.COURSE_ID  ;
+	SELECT LEVEL_TERM into lvlt from COURSES  where COURSE_ID= cours.COURSE_ID ;
+	credTotal:= credTotal+ cred;
+	gp := 0;
+	SELECT GRADE into gp from RESULTS  where STUDENT_ID = St.STUDENT_ID and COURSE_ID = cours.COURSE_ID ;
+	gpas := gpas+gp*cred;
+	END LOOP;
+	IF credTotal=0 THEN 
+	gpas:=0;
+	ELSE 
+	gpas:= gpas/credTotal;
+	END IF;
+	INSERT into gpa 
+	(STUDENT_ID , LEVEL_TERM, GPA , TOTAL__CREDIT) VALUES
+	(st.STUDENT_ID, lvlt,gpas ,credTotal );
+END LOOP;
+END;

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Result Form</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f2f2f2;
+        padding: 20px;
+      }
+
+      .container {
+        max-width: 800px;
+        margin: 0 auto;
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        --display: flex;
+      }
+
+      .form-group {
+        margin-bottom: 20px;
+      }
+
+      label {
+        display: block;
+        font-weight: bold;
+        margin-bottom: 5px;
+      }
+
+      input[type="text"],
+      input[type="number"] {
+        width: 90%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 3px;
+        --margin-left: 2rem;
+      }
+
+      .submitButton {
+        background-color: #0eb19b;
+        color: #fff;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 3px;
+        cursor: pointer;
+      }
+      .submitButton:hover {
+        background-color: #23cfb8;
+      }
+
+      input[type="submit"] {
+        background-color: #c48600;
+        color: #fff;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 3px;
+        cursor: pointer;
+      }
+
+      input[type="submit"]:hover {
+        background-color: #ffad15;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h2>Prepare Result</h2>
+
+      <form class="form" method="POST" action="/insertResult">
+        <div class="form-group">
+          <label for="COURSE_ID">COURSE ID : </label>
+          <input type="text" id="COURSE_ID" name="COURSE_ID" value="<%= courseID %>" readonly />
+        </div>
+        <div class="form-group">
+          <label for="STUDENT_ID">Student ID : </label>
+          <input type="text" id="STUDENT_ID" name="STUDENT_ID" value="<%= studentID %>" readonly />
+        </div>
+        <div class="form-group">
+          <label for="CT-1">CT-1:</label>
+          <input type="number" id="CT-1" name="CT-1" required />
+        </div>
+        <div class="form-group">
+          <label for="CT-2">CT-2:</label>
+          <input type="number" id="CT-2" name="CT-2" required />
+        </div>
+        <div class="form-group">
+          <label for="CT-3">CT-3:</label>
+          <input type="number" id="CT-3" name="CT-3" required />
+        </div>
+        <div class="form-group">
+          <label for="CT-4">CT-4:</label>
+          <input type="number" id="CT-4" name="CT-4" required />
+        </div>
+        <div class="form-group">
+          <label for="CT-5">CT-5:</label>
+          <input type="number" id="CT-5" name="CT-5" required />
+        </div>
+        <div class="form-group">
+          <label for="Attendance">Attendance:</label>
+          <input type="number" id="Attendance" name="Attendance" required />
+        </div>
+        <div class="form-group">
+          <label for="Term Final">Term Final:</label>
+          <input type="number" id="Term Final" name="Term Final" required />
+        </div>
+
+        <div class="form-group">
+          <button type="submit" class="submitButton" style="margin-bottom: 50px;">Submit</button>
+        </div>
+      </form>
+    </div>
+  </body>
+</html>

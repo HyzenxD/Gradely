@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.css" />
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <style>
+        div.scroll {
+            Width: 5px;
+            Height: 10 px;
+            Overflow-x: scroll;
+            Overflow-y: scroll;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="table-responsive text-center container  bg-transparent div-scroll"
+        style="width : 100%;" id="div1">
+        <h4>Courses Pending to be Enrolled</h4>
+        <table class="table table-bordered table-hover" style="margin-top: 20px;">
+            <thead class="table-dark">
+                <tr>
+                    <th scope="col">Teacher ID</th>
+                    <th scope="col">Course ID</th>
+                    <th scope="col">Session Name</th>
+                    <th scope="col">Status</th>
+                    <th scope="col"></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody class="table-primary">
+                <% approvePendingEnrollment.rows.forEach(courses=> { %>
+                    <tr>
+                        <td>
+                            <%= courses.TEACHER_ID %>
+                        </td>
+                        <td>
+                            <%= courses.COURSE_ID %>
+                        </td>
+                        <td>
+                            <%= courses.SESSION_NAME%>
+                        </td>
+                        <td>
+                            <%= courses.STATUS%>
+                        </td>
+                        <td>
+                            <button class="btn btn-dark AdminApproveEnrollCoursesRequest">Approve</button>
+                        </td>
+                        <td>
+                            <button class="btn btn-dark AdminDeleteEnrollCoursesRequest">Deny</button>
+                        </td>
+                    </tr>
+                    <% }); %>
+            </tbody>
+        </table>
+
+        <h4>Courses Pending to be Dropped</h4>
+        <table class="table table-bordered table-hover " style="margin-top: 20px;">
+            <thead class="table-dark">
+                <tr>
+                    <th scope="col">Teacher ID</th>
+                    <th scope="col">Course ID</th>
+                    <th scope="col">Session Name</th>
+                    <th scope="col">Status</th>
+                    <th scope="col"></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody class="table-primary">
+                <% approvePendingDrop.rows.forEach(courses=> { %>
+                    <tr>
+                        <td>
+                            <%= courses.TEACHER_ID %>
+                        </td>
+                        <td>
+                            <%= courses.COURSE_ID %>
+                        </td>
+                        <td>
+                            <%= courses.SESSION_NAME%>
+                        </td>
+                        <td>
+                            <%= courses.STATUS%>
+                        </td>
+                        <td>
+                            <button class="btn btn-dark AdminApproveDropCoursesRequest">Approve </button>
+                        </td>
+                        <td>
+                            <button class="btn btn-dark AdminDeleteDropCoursesRequest">Deny</button>
+                        </td>
+                    </tr>
+                    <% }); %>
+            </tbody>
+        </table>
+        
+        
+    </div>
+
+</body>
+<script src="/node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+
+</html>
